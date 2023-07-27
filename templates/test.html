@@ -1,0 +1,40 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--  jQuery, Bootstrap Datepicker JS, and CSS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" class="form-horizontal">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        {{ form.as_p }}
+                        <!-- Add the datepicker class to the birthday input field -->
+                        <script>
+                            // Initialize the Bootstrap Datepicker
+                            $(document).ready(function() {
+                                $("input[name='birthday']").datepicker({
+                                    format: 'yyyy-mm-dd', 
+                                    endDate: '0d',        
+                                    autoclose: true  
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
